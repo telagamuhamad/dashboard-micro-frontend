@@ -1,1 +1,22 @@
-<p>dashboard works!</p>
+<div>
+    <h2>Dashboard in Shell App</h2>
+    <ng-container *ngIf="headerModule; else loadingHeader">
+      <ng-container *ngComponentOutlet="headerModule.default"></ng-container>
+    </ng-container>
+    <ng-template #loadingHeader>Loading Header Module...</ng-template>
+
+    <ng-container *ngIf="sidebarModule; else loadingSidebar">
+      <ng-container *ngComponentOutlet="sidebarModule.default"></ng-container>
+    </ng-container>
+    <ng-template #loadingSidebar>Loading Sidebar Module...</ng-template>
+
+    <ng-container *ngIf="contentModule; else loadingContent">
+      <ng-container *ngComponentOutlet="contentModule.default"></ng-container>
+    </ng-container>
+    <ng-template #loadingContent>Loading Content Module...</ng-template>
+
+    <ng-container *ngIf="footerModule; else loadingFooter">
+      <ng-container *ngComponentOutlet="footerModule.default"></ng-container>
+    </ng-container>
+    <ng-template #loadingFooter>Loading Footer Module...</ng-template>
+  </div>
